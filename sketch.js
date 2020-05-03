@@ -75,13 +75,13 @@ function draw() {
     
          score = score + Math.round(getFrameRate()/60);
     
-      if(keyDown("space") &&                        trex.collide(invisibleGround)) {
+      if(keyDown("space") && trex.collide(invisibleGround)) {
         //trex jumping
-       trex.velocityY = -10; 
+       trex.velocityY = -12; 
         }
        
       //adding gravity
-      trex.velocityY = trex.velocityY + 0.8
+      trex.velocityY = trex.velocityY + 0.7
   
       if (ground.x < 0) {
        ground.x = ground.width/2;
@@ -108,9 +108,9 @@ function draw() {
       cloudsGroup.setVelocityXEach(0);
     
         //change the trex animation
-      trex.changeAnimation("trex_collided");
+      trex.changeAnimation("collided");
     
-    //set lifetime of the game objects so that they           are never destroyed
+    //set lifetime of the game objects so that they are never destroyed
     obstaclesGroup.setLifetimeEach(-1);
     cloudsGroup.setLifetimeEach(-1);
     
@@ -120,7 +120,7 @@ function draw() {
    }
   
   //display score
-  text("Score: "+ score,450,150);
+  text("Score: "+ score,450,50);
   
   
  
@@ -138,7 +138,7 @@ function reset(){
   obstaclesGroup.destroyEach();
   cloudsGroup.destroyEach();
   
-  trex.changeAnimation("trex_running");
+  trex.changeAnimation("running");
   
   score = 0;
   
